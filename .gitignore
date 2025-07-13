@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Build outputs
+.next/
+out/          # if you export static site with `next export`
+dist/         # if you're using `tsc` or other tools
+
+# Local environment variables
+.env
+.env.*        # covers .env.local, .env.development, etc.
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS and editor-specific
+.DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+.idea/
+
+# Typescript cache
+*.tsbuildinfo
+
+# Coverage reports
+coverage/
+
+# Optional: ignore compiled CSS if using Tailwind CLI or PostCSS separately
+*.css.map
+
+# Next.js telemetry
+.next-tasks.json
