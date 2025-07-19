@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="bg-gray-900 w-full lg:w-1/2 rounded-lg border border-gray-500 p-4">
               <h6 className="mb-2 uppercase text-gray-500">Get in Touch</h6>
               <h2 className="mb-3 font-bold text-3xl">
-                Let's Discuss Projects
+                {"Let's Discuss Projects"}
               </h2>
               <p className="mb-4 leading-6">
                 Get in touch for any kind of software development. I am here to
@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
             <div className="lg:!ml-auto">
               <h3 className="mb-8 text-2xl lg:text-3xl font-bold">
-                Let's Discuss Your Project
+                {"Let's Discuss Your Project"}
               </h3>
               <div className="flex flex-col gap-6 ">
                 <Detail

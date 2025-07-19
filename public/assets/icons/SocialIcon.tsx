@@ -1,4 +1,3 @@
-// components/SocialIcon.tsx
 import React, { JSX } from "react";
 
 interface SocialIconProps {

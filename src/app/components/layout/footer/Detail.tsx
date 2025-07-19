@@ -1,5 +1,7 @@
+import { JSX } from "react";
+
 interface IProps {
-  icon: any;
+  icon: JSX.Element;
   heading: string;
   description: string;
   className?: string;

@@ -45,7 +45,7 @@ export default function ContactForm() {
         status: "success",
         message: "Your message was sent successfully! ✅",
       });
-    } catch (err) {
+    } catch {
       setResponse({
         status: "error",
         message: "Network error. Please try again ❌.",

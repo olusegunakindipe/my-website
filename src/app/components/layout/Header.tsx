@@ -108,7 +108,7 @@ export default function Header() {
               onClick={handleClick}
               variant={`${scrolled ? "secondary" : "primary"}`}
             >
-              Let's Talk
+              {"Let's Talk"}
             </Button>
           </div>
           <button

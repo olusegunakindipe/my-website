@@ -16,9 +16,9 @@ const Homepage = () => {
     <section id="home" className="bg-[#17152f]">
       <div className="h-auto gap-8 lg:relative w-full flex flex-col lg:flex-row lg:items-start items-center lg:justify-start justify-center max-w-7xl mx-auto lg:pt-40">
         <div className="px-4 text-center lg:text-left lg: pl-6 xl:pl-0">
-          <h1 className="text-7xl font-bold text-white mb-4">I'm Segun</h1>
+          <h1 className="text-7xl font-bold text-white mb-4">{"I'm Segun"}</h1>
           <div className="flex items-center justify-center lg:justify-start lg:text-4xl border-4 p-4 border-gray-500 rounded my-12 uppercase font-bold">
-            <span>I'M A&nbsp;</span>
+            <span>{"I'M A"}&nbsp;</span>
             <span className="inline-block  text-white">
               <Typewriter
                 words={["Software Engineer"]}

@@ -1,6 +1,5 @@
 import React from "react";
 import Detail from "../components/layout/footer/Detail";
-import { Location } from "../../../public/assets/icons/Location";
 import Content from "../components/content/Content";
 import { detailItems } from "../data";
 
