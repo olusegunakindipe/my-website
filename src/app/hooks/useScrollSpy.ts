@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navigation } from "../utils";
+import { navigation } from "../data";
 
 export const useScrollSpy = () => {
   const [activeId, setActiveId] = useState<string>("");

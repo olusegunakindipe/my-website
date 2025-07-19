@@ -1,5 +1,5 @@
 import { useScrollSpy } from "@/app/hooks/useScrollSpy";
-import { navigation } from "@/app/utils";
+import { navigation } from "@/app/data";
 import Link from "next/link";
 import React, { Dispatch, MouseEvent, SetStateAction, forwardRef } from "react";
 
@@ -24,11 +24,11 @@ const MobileHeader = forwardRef<HTMLDivElement, IProps>(
     return (
       <div
         ref={ref}
-        className={`bg-white  fixed top-0 left-0 w-full block md:hidden font-bold  p-4 shadow-md z-40 transform transition-transform duration-300 ease-in-out ${
-          open ? "translate-y-24" : "-translate-y-full "
+        className={`bg-white  fixed top-0 left-0 w-full block lg:hidden font-bold  p-4 shadow-md z-40 transform transition-transform duration-300 ease-in-out ${
+          open ? "translate-y-24" : "-translate-y-full"
         }`}
       >
-        <div className="flex  flex-col items-center justify-center gap-4 text-black uppercase text-sm">
+        <div className="flex flex-col items-center justify-center gap-4 text-black uppercase text-sm">
           {navigation.map((item, index) => (
             <Link
               key={`${item}_${index}`}

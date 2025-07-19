@@ -3,7 +3,7 @@ import Link from "next/link";
 import Button from "../button/Button";
 import { useEffect, useState, useRef, MouseEvent } from "react";
 import Hamburger from "../hamburger/Hamburger";
-import { navigation } from "../../utils";
+import { navigation } from "../../data";
 import MobileHeader from "./MobileHeader";
 import { useScrollSpy } from "../../hooks/useScrollSpy";
 
@@ -14,13 +14,22 @@ export default function Header() {
 
   const activeId = useScrollSpy();
 
-  const handleClickOutside = (event: globalThis.MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
-    }
-  };
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as Node;
+
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
@@ -41,7 +50,7 @@ export default function Header() {
   }, []);
 
   const handleMobileMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   const handleLinkClick = (
@@ -54,20 +63,28 @@ export default function Header() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    e.preventDefault();
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full h-24 z-50 transition-colors duration-300 ${
+        className={`fixed mx-auto top-0 left-0 inset-x-0 h-24 z-50 transition-colors duration-300 ${
           scrolled
             ? "bg-gray-200 shadow-md text-black"
-            : "bg-transparent text-white"
+            : "bg-[#17152f] text-white"
         }`}
       >
-        <nav className="container mx-auto flex justify-between items-center h-full px-4 font-bold">
-          <Link href="/" className="text-2xl font-bold cursor-pointer">
-            <h1 className="font-playfair text-xl italic">Olusegun Akindipe</h1>
+        <nav className="container max-w-7xl mx-auto flex justify-between items-center h-full px-4 xl:px-0 font-bold">
+          <Link href="/" className="text-2xl  font-bold cursor-pointer">
+            <h1 className="font-playfair lg:text-2xl text-xl italic">
+              Olusegun Akindipe
+            </h1>
           </Link>
-          <div className="hidden md:flex items-center gap-8 cursor-pointer uppercase">
+          <div className="hidden lg:flex items-center gap-8 cursor-pointer uppercase">
             {navigation.map((item, index) => (
               <Link
                 onClick={(e) => handleLinkClick(e, item.id)}
@@ -86,10 +103,19 @@ export default function Header() {
               </Link>
             ))}
           </div>
-          <div className="hidden md:block">
-            <Button>Let's Talk</Button>
+          <div className="hidden lg:block">
+            <Button
+              onClick={handleClick}
+              variant={`${scrolled ? "secondary" : "primary"}`}
+            >
+              Let's Talk
+            </Button>
           </div>
-          <button className="block md:hidden" onClick={handleMobileMenu}>
+          <button
+            ref={hamburgerRef}
+            className="block lg:hidden"
+            onClick={handleMobileMenu}
+          >
             <Hamburger bgColor={`${scrolled ? "bg-black" : "bg-white"} `} />
           </button>
         </nav>
