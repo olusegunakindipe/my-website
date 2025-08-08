@@ -20,7 +20,7 @@ const About = () => {
       {
         root: null,
         rootMargin: "0px",
-      }
+      },
     );
 
     observer.observe(imgRef.current);

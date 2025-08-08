@@ -65,7 +65,7 @@ export default function Header() {
 
   const handleLinkClick = (
     e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-    id: string
+    id: string,
   ) => {
     e.preventDefault();
     setIsOpen(false);

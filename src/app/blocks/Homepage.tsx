@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Homepage = () => {
   const handleClick = (
-    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
     e.preventDefault();
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });

@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Olusegun Francis Akindipe — Personal Portfolio
+This is my personal portfolio website showcasing my skills, projects, and experience as a full-stack software developer.
 
-## Getting Started
+Getting Started
+To run the development server locally:
 
-First, run the development server:
-
-```bash
+bash
+Copy
+Edit
 npm run dev
+
 # or
+
 yarn dev
+
 # or
+
 pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to view the site.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start editing the content by modifying the source files. Changes will auto-refresh the page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Features
+Responsive design with Tailwind CSS.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Interactive animations and smooth scrolling.
 
-## Learn More
+Integrated Calendly widget for scheduling meetings.
 
-To learn more about Next.js, take a look at the following resources:
+SEO optimized with metadata and font optimization.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Code quality maintained with ESLint and Prettier.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Continuous Integration with GitHub Actions for linting and formatting checks.
 
-## Deploy on Vercel
+Technologies Used
+React (with TypeScript)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Calendly API integration
+
+ESLint and Prettier
+
+GitHub Actions for CI
+
+Deployment
+This project is optimized for deployment on Vercel or any Node.js hosting provider.
+
+To deploy, push your code to your repository and connect it to your chosen hosting platform for automatic builds and deployments.
+
+Contact
+Feel free to reach out via the Get in Touch button on the website or connect with me on LinkedIn and GitHub.

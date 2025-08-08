@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 
 const Projects = () => {
   const [visibleProjects, setVisibleProjects] = useState<boolean[]>(
-    Array(projects.length).fill(false)
+    Array(projects.length).fill(false),
   );
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Projects = () => {
             observer.disconnect();
           }
         },
-        { threshold: 0.2 }
+        { threshold: 0.2 },
       );
 
       observer.observe(el);
@@ -45,7 +45,7 @@ const Projects = () => {
   }, []);
 
   const handleClick = (
-    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
     e.preventDefault();
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
