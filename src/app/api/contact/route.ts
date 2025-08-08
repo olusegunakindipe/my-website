@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   if (!name || !email || !subject || !message) {
     return NextResponse.json(
       { message: "All fields are required." },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -32,13 +32,13 @@ export async function POST(req: Request) {
       {
         message: "Message sent successfully!, you will be contacted shortly ✅",
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err) {
     console.error(err);
     return NextResponse.json(
       { message: "Failed to send message ❌." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

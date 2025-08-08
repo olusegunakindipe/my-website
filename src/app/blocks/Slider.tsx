@@ -36,7 +36,9 @@ const Slider = () => {
             height={40}
             className="text-black"
           />
-          <span className="text-black text-sm font-medium">{tech.name}</span>{" "}
+          <span className="text-black text-sm font-medium">
+            {tech.name}
+          </span>{" "}
         </div>
       ))}
     </Marquee>

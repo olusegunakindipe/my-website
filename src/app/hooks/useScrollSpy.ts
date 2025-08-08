@@ -18,7 +18,7 @@ export const useScrollSpy = () => {
         {
           root: null,
           threshold: 0.5,
-        }
+        },
       );
 
       observer.observe(el);

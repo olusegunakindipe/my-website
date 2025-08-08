@@ -8,9 +8,13 @@ bash
 Copy
 Edit
 npm run dev
+
 # or
+
 yarn dev
+
 # or
+
 pnpm dev
 Open http://localhost:3000 in your browser to view the site.
 

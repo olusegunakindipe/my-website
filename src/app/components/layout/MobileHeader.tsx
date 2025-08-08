@@ -14,7 +14,7 @@ const MobileHeader = forwardRef<HTMLDivElement, IProps>(
 
     const handleClick = (
       e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-      id: string
+      id: string,
     ) => {
       e.preventDefault();
       setIsOpen(false);
@@ -49,7 +49,7 @@ const MobileHeader = forwardRef<HTMLDivElement, IProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
 MobileHeader.displayName = "MobileHeader";
