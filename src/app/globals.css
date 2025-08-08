@@ -1,7 +1,13 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
+@config "../../tailwind.config.ts";
+
+@theme {
+  --font-merienda: "Indie Flower";
+}
 :root {
-  /* --background: #17152f; */
+  --background: #17152f;
   --foreground: #fff;
 }
 
@@ -11,19 +17,8 @@ html {
 
 body {
   color: var(--foreground);
-  font-family: "Britti Sans", sans-serif;
   font-size: 1rem;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.typewriter::before {
-  content: "developer";
-  animation: typewriter 4s steps(9) infinite, blink 0.7s step-end infinite;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid white;
-  width: 0ch;
 }

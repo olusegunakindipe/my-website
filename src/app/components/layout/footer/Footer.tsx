@@ -6,13 +6,15 @@ import Detail from "./Detail";
 
 export default function Footer() {
   return (
-    <>
-      <footer id="contact" className="bg-[#17152f]">
+    <div id="contact" className="bg-[#17152f]">
+      <footer>
         <div className=" mx-auto max-w-7xl container text-white p-4 flex flex-col items-center">
           <div className="flex flex-col gap-14 lg:gap-0 lg:flex-row w-full mt-12 lg:my-24">
             <div className="bg-gray-900 w-full lg:w-1/2 rounded-lg border border-gray-500 p-4">
-              <h6 className="mb-2 uppercase text-gray-500">Get in Touch</h6>
-              <h2 className="mb-3 font-bold text-3xl">
+              <h6 className="mb-2 uppercase text-gray-500 font-marcellus">
+                Get in Touch
+              </h6>
+              <h2 className="mb-3 font-bold text-3xl font-marcellus">
                 {"Let's Discuss Projects"}
               </h2>
               <p className="mb-4 leading-6">
@@ -22,7 +24,7 @@ export default function Footer() {
               <ContactForm />
             </div>
             <div className="lg:!ml-auto">
-              <h3 className="mb-8 text-2xl lg:text-3xl font-bold">
+              <h3 className="mb-8 text-2xl lg:text-3xl font-bold font-marcellus">
                 {"Let's Discuss Your Project"}
               </h3>
               <div className="flex flex-col gap-6 ">
@@ -30,16 +32,22 @@ export default function Footer() {
                   icon={<Mail height="24" width="24" />}
                   heading="Phone"
                   description="+44 7748120797"
+                  animate="animate-slide-in-right"
+                  delay={0.5}
                 />
                 <Detail
                   icon={<Phone height="24" width="24" />}
-                  heading="Mail"
+                  heading="E-Mail"
                   description="akinfergie@gmail.com"
+                  animate="animate-slide-in-right"
+                  delay={1.5}
                 />
                 <Detail
                   icon={<Location height="24" width="24" />}
                   heading="Location"
                   description="Birmingham, United Kingdom"
+                  animate="animate-slide-in-right"
+                  delay={2.5}
                 />
               </div>
               <iframe
@@ -54,9 +62,9 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <p className="flex flex-col items-center border-t-1 border-gray-500 py-2">
+      <p className="flex font-marcellus flex-col items-center border-t-1 border-gray-500 py-2">
         © {new Date().getFullYear()} copyright all rights reserved
       </p>
-    </>
+    </div>
   );
 }

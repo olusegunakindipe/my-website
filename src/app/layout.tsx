@@ -1,48 +1,48 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Pacifico, Marcellus } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/footer/Footer";
+import ScrollArrow from "./components/scroll-arrow/ScrollArrow";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const pacifico = Pacifico({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Using next/font (Next.js 13+)
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
+  weight: ["400"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-pacifico",
 });
 
+const marcellus = Marcellus({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-marcellus",
+});
 export const metadata: Metadata = {
   title: "My Portfolio",
   description: "My personal site",
-  viewport: "width=device-width, initial-scale=1.0",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={playfair.variable}>
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pacifico.variable} ${marcellus.variable}  antialiased`}
       >
         <Header />
-        <main className=" min-h-[40vh] relative pt-24 ">{children}</main>
+        <main className=" bg-testcolor min-h-[40vh] relative pt-24 ">
+          {children}
+        </main>
         <Footer />
+        <ScrollArrow />
       </body>
     </html>
   );

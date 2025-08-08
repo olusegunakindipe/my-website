@@ -16,7 +16,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   company,
 }) => {
   return (
-    <div className="border border-gray-200 p-8 rounded-lg flex flex-col justify-between h-full">
+    <div
+      className="border border-gray-200 p-8 rounded-lg flex flex-col justify-between h-full
+    hover:shadow-lg transition-shadow duration-300 ease-in-out cursor-pointer"
+    >
       <div>
         <h5 className="mb-4 font-bold">{quote}</h5>
         <p className="text-gray-400 mb-4">{description}</p>
