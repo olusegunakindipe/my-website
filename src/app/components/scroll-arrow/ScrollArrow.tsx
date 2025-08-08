@@ -9,8 +9,6 @@ export default function ScrollArrow() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
 
       setShowButton(scrollTop > 100);
       setAtTop(scrollTop <= 10);
