@@ -29,7 +29,7 @@ const Detail = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.2 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -38,7 +38,7 @@ const Detail = ({
   return (
     <div
       ref={ref}
-      className={`flex items-start gap-6 opacity-0 ${className} ${
+      className={`flex items-start gap-6 ${animate && "opacity-0"} ${className} ${
         isVisible ? animate : ""
       }`}
       style={{

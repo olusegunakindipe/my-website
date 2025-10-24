@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Homepage = () => {
   const handleClick = (
-    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
     e.preventDefault();
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -49,11 +49,11 @@ const Homepage = () => {
 
         <div className="animate-slide-in-right lg:mt-32 transition-transform duration-300 ease-in hover:scale-115 scale-105 w-full max-w-md mx-auto lg:w-1/2 lg:absolute top-4 right-2">
           <Image
-            src="/assets/my-pics.png"
+            src="/assets/web-pic.png"
             alt="Profile picture"
             width={1200}
             height={500}
-            className="rounded-xl transform scale-100 lg:scale-125 w-full h-[400px] lg:h-[550px] object-cover"
+            className="rounded-xl transform scale-100 lg:scale-125 w-full h-[400px] lg:h-[550px] object-center"
           />
         </div>
       </div>
