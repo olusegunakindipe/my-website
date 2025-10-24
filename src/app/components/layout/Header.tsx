@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Button from "../button/Button";
 import { useEffect, useState, useRef, MouseEvent } from "react";
 import Hamburger from "../hamburger/Hamburger";
 import { navigation } from "../../data";
@@ -8,6 +7,7 @@ import MobileHeader from "./MobileHeader";
 import { useScrollSpy } from "../../hooks/useScrollSpy";
 import Image from "next/image";
 import Script from "next/script";
+import { Button } from "@/components/ui/button";
 
 declare global {
   interface Window {

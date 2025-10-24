@@ -38,23 +38,23 @@ const About = () => {
           >
             <div className="absolute inset-0 rounded-full bg-white z-0"></div>
             <Image
-              src="/assets/my-pics.png"
+              src="/assets/web-pic.png"
               alt="Profile picture"
               width={600}
               height={600}
-              className={`absolute -top-16 left-1/2 -translate-x-1/2 w-96 h-96 md:w-[600px] md:h-[600px] object-cover rounded-full shadow-2xl z-10 border-white transition-opacity duration-1000 ${
+              className={`absolute -top-16 left-1/2 -translate-x-1/2 w-96 h-96 md:w-[600px] md:h-[600px] object-center rounded-full shadow-2xl z-10 border-white transition-opacity duration-1000 ${
                 isVisible ? "delay-500 animate-slide-in-mid" : "opacity-0"
               }`}
               priority={true}
             />
           </div>
         </div>
-        <div className="lg:w-1/2 w-full px-4 lg:px-0 font-marcellus">
+        <div className="lg:w-1/2 w-full px-4 lg:px-0 font-marcellus text-white">
           <h6 className="uppercase text-xl mb-4 font-bold animate-slide-in-right delay-100">
             About - Olusegun Akindipe
           </h6>
           <h3 className="text-3xl opacity-0 leading-10 mb-8 animate-slide-in-right delay-700">
-            {`Ready to impress your audience and grow your business? Let’s create something unforgettable."`}
+            {`Ready to impress your audience and grow your business? Let’s create something unforgettable.`}
           </h3>
           <p className="leading-8  animate-slide-in-right delay-[1500]">
             {`I’m a full-stack software developer with 6+ years of experience building robust, scalable, and user-centric web applications. I’ve worked across companies in China, Hong Kong, and now the UK, where I’m a Software Engineer at Keystone. My expertise spans React, Next.js, Angular, TypeScript, Node.js, PHP, AWS, and GCP. At Keystone, I tackle complex web application projects, delivering high-performance, maintainable solutions from concept to production.

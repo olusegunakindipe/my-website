@@ -32,22 +32,16 @@ export default function Footer() {
                   icon={<Mail height="24" width="24" />}
                   heading="Phone"
                   description="+44 7748120797"
-                  animate="animate-slide-in-right"
-                  delay={0.5}
                 />
                 <Detail
                   icon={<Phone height="24" width="24" />}
                   heading="E-Mail"
                   description="akinfergie@gmail.com"
-                  animate="animate-slide-in-right"
-                  delay={1.5}
                 />
                 <Detail
                   icon={<Location height="24" width="24" />}
                   heading="Location"
                   description="Birmingham, United Kingdom"
-                  animate="animate-slide-in-right"
-                  delay={2.5}
                 />
               </div>
               <iframe
@@ -62,7 +56,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <p className="flex font-marcellus flex-col items-center border-t-1 border-gray-500 py-2">
+      <p className="text-white flex font-marcellus flex-col items-center border-t-1 border-gray-500 py-2">
         © {new Date().getFullYear()} copyright all rights reserved
       </p>
     </div>

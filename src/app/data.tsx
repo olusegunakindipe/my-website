@@ -54,21 +54,21 @@ export const detailItems = [
 export const processItems = [
   {
     icon: <Work height="24" width="24" fill="white" />,
-    heading: "How We Work",
+    heading: "How I Work",
     description:
-      "From discovery to deployment, we build robust web platforms with clear communication and a focus on long-term scalability. Our process ensures your idea becomes a high-performing product—on time and on point.",
+      "From discovery to deployment, I build robust web platforms with clear communication and a focus on long-term scalability. My process ensures your idea becomes a high-performing product—on time and on point.",
   },
   {
     icon: <Approach height="24" width="24" fill="white" />,
-    heading: "Our Approach",
+    heading: "My Approach",
     description:
-      "We combine design thinking with technical expertise to craft tailored digital solutions. Every decision—front end to back end—is rooted in strategy, performance, and user experience.",
+      "I combine design thinking with technical expertise to craft tailored digital solutions. Every decision—front end to back end—is rooted in strategy, performance, and user experience.",
   },
   {
     icon: <Workflow height="24" width="24" fill="white" />,
     heading: "Workflow",
     description:
-      "Our workflow is lean, agile, and transparent. From clean codebases to cloud deployment, we handle the entire build cycle—so you can launch with confidence and scale without stress.",
+      "My workflow is lean, agile, and transparent. From clean codebases to cloud deployment, I handle the entire build cycle—so you can launch with confidence and scale without stress.",
   },
 ];
 
