@@ -19,8 +19,9 @@ const marcellus = Marcellus({
   variable: "--font-marcellus",
 });
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "My personal site",
+  title: "Segun Akindipe - personal portfolio",
+  description:
+    "Welcome to my personal portfolio website. I'm Segun, a skilled web developer specializing in creating dynamic and responsive web applications. Explore my projects, skills, and get in touch to discuss how I can help bring your ideas to life.",
 };
 
 export const viewport = {
