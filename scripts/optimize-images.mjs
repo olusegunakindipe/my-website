@@ -1,21 +1,21 @@
-import sharp from 'sharp';
-import fs from 'fs';
-import path from 'path';
+import sharp from "sharp";
+import fs from "fs";
+import path from "path";
 
-const assetsDir = './public/assets';
+const assetsDir = "./public/assets";
 
 const filesToOptimize = [
-  'fergie-pic.png',
-  'web-pic.png',
-  'project-1.jpg',
-  'project-2.jpg',
-  'project-3.jpg',
-  'zktube.jpeg',
-  'my-pics.png'
+  "fergie-pic.png",
+  "web-pic.png",
+  "project-1.jpg",
+  "project-2.jpg",
+  "project-3.jpg",
+  "zktube.jpeg",
+  "my-pics.png",
 ];
 
 async function optimize() {
-  console.log('🚀 Starting image optimization...');
+  console.log("🚀 Starting image optimization...");
 
   for (const file of filesToOptimize) {
     const filePath = path.join(assetsDir, file);
@@ -34,7 +34,7 @@ async function optimize() {
         .resize({ width: 2000, withoutEnlargement: true }) // Prevent massive dimensions
         .webp({ quality: 80 })
         .toFile(outputPath);
-      
+
       const oldSize = (fs.statSync(filePath).size / 1024 / 1024).toFixed(2);
       const newSize = (fs.statSync(outputPath).size / 1024 / 1024).toFixed(2);
       console.log(`✅ ${file}: ${oldSize}MB -> ${newSize}MB (WebP)`);
@@ -43,7 +43,7 @@ async function optimize() {
     }
   }
 
-  console.log('⭐ Optimization complete!');
+  console.log("⭐ Optimization complete!");
 }
 
 optimize();
