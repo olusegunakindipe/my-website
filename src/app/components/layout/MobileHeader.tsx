@@ -24,24 +24,22 @@ const MobileHeader = forwardRef<HTMLDivElement, IProps>(
     return (
       <div
         ref={ref}
-        className={`bg-white  fixed top-0 left-0 w-full block lg:hidden font-bold  p-4 shadow-md z-40 transform transition-transform duration-300 ease-in-out ${
-          open ? "translate-y-24" : "-translate-y-full"
+        className={`glass-dark fixed top-[80px] left-6 right-6 rounded-[2rem] block lg:hidden font-bold p-8 shadow-2xl z-40 transform transition-all duration-500 ease-in-out border border-white/10 ${
+          open
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-10 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col items-center justify-center gap-4 text-black uppercase text-sm">
-          {navigation.map((item, index) => (
+        <div className="flex flex-col items-center justify-center gap-6 text-white uppercase text-sm tracking-widest">
+          {navigation.map((item) => (
             <Link
-              key={`${item}_${index}`}
+              key={item.id}
               onClick={(e) => handleClick(e, item.id)}
-              href="/"
+              href={`#${item.id}`}
               className={`
-            relative transition-colors duration-300
-            before:content-[''] before:absolute before:bottom-0 before:left-0
-            before:h-[2px] before:w-full before:scale-x-0 before:origin-left
-            before:bg-current before:transition-transform before:duration-300
-            hover:before:scale-x-100
-            ${activeId === item.id ? "before:scale-x-100" : ""}
-          `}
+                relative transition-all duration-300 py-1
+                ${activeId === item.id ? "text-blue-400" : "text-white/60"}
+              `}
             >
               {item.name}
             </Link>

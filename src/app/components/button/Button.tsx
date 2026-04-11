@@ -1,9 +1,15 @@
+"use client";
 import React, { ButtonHTMLAttributes } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
+  > {
   href?: string;
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "glass";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   isLoading?: boolean;
@@ -22,26 +28,27 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   target,
   rel,
+  type = "button",
   ...props
 }) => {
   const baseClasses =
-    "rounded-md cursor-pointer font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+    "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none cursor-pointer";
 
   const variantClasses = {
     primary:
-      "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500",
+      "bg-primary text-white hover:bg-primary/90 shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]",
     secondary:
-      "bg-neutral-700 text-white hover:bg-neutral-600 focus-visible:ring-gray-500",
+      "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/10",
     outline:
-      "border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 focus-visible:ring-gray-500",
-    ghost:
-      "bg-transparent text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-500",
+      "border border-white/20 bg-transparent text-white hover:bg-white/5",
+    ghost: "bg-transparent text-white/70 hover:text-white hover:bg-white/5",
+    glass: "glass-dark text-white hover:bg-white/10 transition-colors",
   };
 
   const sizeClasses = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2 text-base",
-    lg: "px-6 py-3 text-lg",
+    sm: "px-4 py-1.5 text-sm",
+    md: "px-6 py-2.5 text-base",
+    lg: "px-8 py-3.5 text-lg",
   };
 
   const widthClass = fullWidth ? "w-full" : "";
@@ -75,38 +82,47 @@ const Button: React.FC<ButtonProps> = ({
     children
   );
 
-  // External Link
-  if (href && (href.startsWith("http://") || href.startsWith("https://"))) {
-    return (
-      <a
-        href={href}
-        target={target || "_blank"}
-        rel={rel || "noopener noreferrer"}
-        className={combinedClasses}
-      >
-        {content}
-      </a>
-    );
-  }
-
   // Internal Link (Next.js)
-  if (href) {
+  if (href && !href.startsWith("http")) {
     return (
-      <Link href={href} passHref>
-        <a className={combinedClasses}>{content}</a>
+      <Link href={href} className={combinedClasses} target={target} rel={rel}>
+        <motion.span
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex items-center gap-2"
+        >
+          {content}
+        </motion.span>
       </Link>
     );
   }
 
-  // Regular button
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target={target || "_blank"}
+        rel={rel || "noopener noreferrer"}
+        className={combinedClasses}
+        whileHover={{ y: -2 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {content}
+      </motion.a>
+    );
+  }
+
   return (
-    <button
+    <motion.button
+      type={type}
       className={combinedClasses}
       disabled={disabled || isLoading}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.98 }}
       {...props}
     >
       {content}
-    </button>
+    </motion.button>
   );
 };
 

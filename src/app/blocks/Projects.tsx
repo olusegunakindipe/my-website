@@ -1,136 +1,159 @@
 "use client";
-
+import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Button from "../components/button/Button";
 import { ArrowRight } from "../../../public/assets/icons/ArrowRight";
 import { processItems, projects } from "../data";
-import ProjectCard from "../components/project-card/ProjectCard";
-import Content from "../components/content/Content";
-import Detail from "../components/layout/footer/Detail";
-import { useEffect, useState } from "react";
 
 const Projects = () => {
-  const [visibleProjects, setVisibleProjects] = useState<boolean[]>(
-    Array(projects.length).fill(false),
-  );
-
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    projects.forEach((_, idx) => {
-      const el = document.getElementById(`project-${idx}`);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisibleProjects((prev) => {
-              const updated = [...prev];
-              updated[idx] = true;
-              return updated;
-            });
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.2 },
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => {
-      observers.forEach((o) => o.disconnect());
-    };
-  }, []);
-
   const handleClick = (
-    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
   ) => {
     e.preventDefault();
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
-    <section id="projects" className="lg:pt-20 pt-12 pb-12 scroll-mt-24">
-      <div className="h-auto px-8 xl:px-0 mx-auto flex flex-col items-center justify-center text-black container max-w-7xl">
-        <h1 className="font-marcellus text-2xl lg:text-4xl font-bold mb-8 opacity-0 animate-slide-in-left">
-          Featured Projects
-        </h1>
+    <section
+      id="projects"
+      className="py-20 relative overflow-hidden mesh-gradient"
+    >
+      {/* Background Decorative Elements with 3D feel */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -45, 0],
+            x: [0, 80, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[150px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 45, 0],
+            x: [0, -40, 0],
+            y: [0, 60, 0],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 -left-20 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px]"
+        />
+      </div>
 
-        {projects.map((project, index) => {
-          const isVisible = visibleProjects[index];
-          return (
-            <div
-              id={`project-${index}`}
+      <div className="container max-w-7xl mx-auto px-6 relative z-10">
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-blue-400 font-medium mb-4 uppercase tracking-widest text-sm">
+              Portfolio
+            </h2>
+            <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Featured Projects
+            </h3>
+          </motion.div>
+        </div>
+
+        <div className="grid gap-12">
+          {projects.map((project, index) => (
+            <motion.div
               key={index}
-              className="w-full rounded-lg py-4 relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}
             >
-              <Image
-                src={project.imageUrl}
-                alt={project.title}
-                width={1280}
-                height={500}
-                className={`
-                  h-[500px] object-cover rounded-xl opacity-0
-                  ${isVisible ? "animate-slide-in-up delay-[200ms]" : ""}
-                `}
-                tabIndex={0}
-              />
+              <div className="w-full lg:w-3/5 group relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+                <Image
+                  src={project.imageUrl}
+                  alt={project.title}
+                  width={1280}
+                  height={720}
+                  className="w-full h-[400px] lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
+              </div>
 
-              <ProjectCard
-                className={`
-                  absolute bottom-8 left-1/2 -translate-x-1/2 
-                  w-[90%] md:w-full max-w-md px-4
-                  md:left-4 md:translate-x-0 md:bottom-10
-                  opacity-0 ${
-                    isVisible ? "animate-slide-in-mid delay-[1200ms]" : ""
-                  }
-                `}
-                title={project.title}
-                description={project.description}
-              >
+              <div className="w-full lg:w-2/5 text-left">
+                <h4 className="text-3xl font-bold text-white mb-6 tracking-tight">
+                  {project.title}
+                </h4>
+                <p className="text-white/85 text-lg leading-relaxed mb-8">
+                  {project.description}
+                </p>
                 <Button
                   href={project.link}
-                  target="_blank"
-                  variant="secondary"
-                  className="inline-flex w-full md:w-auto mx-auto md:mx-0 justify-center items-center gap-4 mt-4"
+                  variant="outline"
+                  size="lg"
+                  className="group"
                 >
-                  <span>View Project</span> <ArrowRight />
+                  View Case Study{" "}
+                  <span className="ml-2 transition-transform group-hover:translate-x-1">
+                    <ArrowRight />
+                  </span>
                 </Button>
-              </ProjectCard>
-            </div>
-          );
-        })}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Process Section */}
-        <div className="flex flex-col gap-4 lg:flex-row py-16 lg:gap-12">
-          <div className="w-full lg:w-1/2">
-            <Content
-              heading="My Process"
-              description="Turning your website vision into a high-performing digital experience — with a clear, structured approach from start to finish."
+        <div className="mt-20">
+          <div className="flex flex-col lg:flex-row gap-20 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-1/3"
             >
-              <Button
-                target="_blank"
-                variant="secondary"
-                className="inline-flex w-full md:w-auto mx-auto md:mx-0 justify-center items-center gap-4 mt-8 lg:mt-12"
-                onClick={handleClick}
-              >
-                <span>Get in touch</span> <ArrowRight />
+              <h2 className="text-blue-400 font-medium mb-4 uppercase tracking-widest text-sm">
+                Workflow
+              </h2>
+              <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                My Process
+              </h3>
+              <p className="text-white/85 text-lg leading-relaxed mb-10">
+                A structured, transparent approach to building high-quality
+                digital products that scale.
+              </p>
+              <Button variant="primary" size="lg" onClick={handleClick}>
+                Let&apos;s Talk{" "}
+                <span className="ml-2">
+                  <ArrowRight />
+                </span>
               </Button>
-            </Content>
-          </div>
-          <div className="flex flex-col lg:gap-8 gap-6 w-full lg:w-1/2 mt-4 lg:mt-0">
-            {processItems.map((item, index) => (
-              <Detail
-                key={index}
-                icon={item.icon}
-                heading={item.heading}
-                description={item.description}
-                className="border border-gray-300 p-4 lg:p-8 rounded-lg"
-                animate="animate-slide-in-up"
-                delay={index * 0.5}
-              />
-            ))}
+            </motion.div>
+
+            <div className="w-full lg:w-2/3 grid gap-6">
+              {processItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="glass-dark p-8 rounded-3xl border border-white/5 flex gap-8 items-center group hover:bg-white/[0.03] transition-colors"
+                >
+                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-blue-400 scale-125">{item.icon}</div>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-white mb-2 leading-tight uppercase tracking-tight">
+                      {item.heading}
+                    </h4>
+                    <p className="text-white/70 leading-relaxed text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

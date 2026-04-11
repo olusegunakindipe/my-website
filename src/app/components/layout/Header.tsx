@@ -5,9 +5,8 @@ import Hamburger from "../hamburger/Hamburger";
 import { navigation } from "../../data";
 import MobileHeader from "./MobileHeader";
 import { useScrollSpy } from "../../hooks/useScrollSpy";
-import Image from "next/image";
 import Script from "next/script";
-import { Button } from "@/components/ui/button";
+import Button from "../button/Button";
 
 declare global {
   interface Window {
@@ -23,13 +22,11 @@ export default function Header() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const activeId = useScrollSpy();
-
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: Event) => {
       const target = event.target as Node;
-
       if (
         menuRef.current &&
         !menuRef.current.contains(target) &&
@@ -53,7 +50,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -63,17 +60,13 @@ export default function Header() {
     setIsOpen((prev) => !prev);
   };
 
-  const handleLinkClick = (
-    e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-    id: string,
-  ) => {
+  const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsOpen(false);
-
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleClick = () => {
+  const handleCalendly = () => {
     window.Calendly?.initPopupWidget({
       url: "https://calendly.com/akinfergie/get-in-touch",
     });
@@ -91,57 +84,65 @@ export default function Header() {
         rel="stylesheet"
       />
       <header
-        className={`fixed mx-auto top-0 left-0 inset-x-0 h-24 z-50 transition-colors duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-gray-200 shadow-md text-black"
-            : "bg-[#17152f] text-white"
+            ? "py-4 mesh-gradient backdrop-blur-2xl border-b border-white/5 shadow-2xl"
+            : "py-8 bg-transparent"
         }`}
       >
-        <nav className=" max-w-7xl mx-auto flex justify-between items-center h-full px-4 xl:px-0 font-bold">
-          <Link href="/" className="cursor-pointer p-0">
-            <Image
-              src={`/assets/${scrolled ? "logo-1.png" : "logo-2.png"}`}
-              alt="image"
-              width={200}
-              height={50}
-              className="w-40 lg:w-[200px]"
-            />
+        <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 lg:px-12">
+          <Link
+            href="/"
+            className="flex items-center gap-4 group cursor-pointer relative z-10 transition-transform active:scale-95"
+          >
+            <div className="flex flex-col gap-0">
+              <span className="text-white font-black text-2xl lg:text-3xl leading-none tracking-tighter group-hover:text-blue-500 transition-colors">
+                Segun <span className="text-blue-600">Akindipe.</span>
+              </span>
+              <div className="flex items-center gap-2 mt-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]" />
+                <span className="text-white/30 text-[9px] font-black uppercase tracking-[0.4em] leading-none">
+                  Senior Software Engineer
+                </span>
+              </div>
+            </div>
           </Link>
-          <div className="hidden lg:flex items-center gap-8 cursor-pointer uppercase">
-            {navigation.map((item, index) => (
+
+          <div className="hidden lg:flex items-center bg-white/5 backdrop-blur-md rounded-2xl p-1.5 border border-white/10">
+            {navigation.map((item) => (
               <Link
                 onClick={(e) => handleLinkClick(e, item.id)}
-                key={`${item}_${index}`}
-                href="#"
+                key={item.id}
+                href={`#${item.id}`}
                 className={`
-                font-marcellus relative transition-colors duration-300
-                before:content-[''] before:absolute before:bottom-0 before:left-0
-                before:h-[2px] before:w-full before:scale-x-0 before:origin-left
-                before:bg-current before:transition-transform before:duration-300
-                hover:before:scale-x-100
-                ${activeId === item.id ? "before:scale-x-100" : ""}
-              `}
+                  px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer
+                  ${
+                    activeId === item.id
+                      ? "text-white bg-blue-600 shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                      : "text-white/50 hover:text-white hover:bg-white/5"
+                  }
+                `}
               >
                 {item.name}
               </Link>
             ))}
           </div>
-          <div className="hidden lg:block">
-            <Button
-              onClick={handleClick}
-              variant={`${scrolled ? "secondary" : "primary"}`}
-              className="opacity-0 animate-slide-in-mid delay-200"
+
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:block">
+              <Button onClick={handleCalendly} variant="primary" size="sm">
+                Let&apos;s Talk
+              </Button>
+            </div>
+
+            <button
+              ref={hamburgerRef}
+              className="block lg:hidden text-white"
+              onClick={handleMobileMenu}
             >
-              {"Let's Talk"}
-            </Button>
+              <Hamburger bgColor="bg-white" />
+            </button>
           </div>
-          <button
-            ref={hamburgerRef}
-            className="block lg:hidden"
-            onClick={handleMobileMenu}
-          >
-            <Hamburger bgColor={`${scrolled ? "bg-black" : "bg-white"} `} />
-          </button>
         </nav>
       </header>
       <MobileHeader open={isOpen} setIsOpen={setIsOpen} ref={menuRef} />
