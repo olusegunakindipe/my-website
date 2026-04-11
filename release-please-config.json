@@ -1,0 +1,8 @@
+{
+  ".": {
+    "release-type": "node",
+    "package-name": "my-official-website",
+    "target-branch": "release",
+    "include-v-in-tag": true
+  }
+}
