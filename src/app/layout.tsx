@@ -1,45 +1,43 @@
 import type { Metadata } from "next";
-import { Pacifico, Marcellus } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/footer/Footer";
 import ScrollArrow from "./components/scroll-arrow/ScrollArrow";
 
-const pacifico = Pacifico({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-  variable: "--font-pacifico",
+  variable: "--font-inter",
 });
 
-const marcellus = Marcellus({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-  variable: "--font-marcellus",
+  variable: "--font-outfit",
 });
+
 export const metadata: Metadata = {
-  title: "Segun Akindipe - personal portfolio",
+  title: "Segun Akindipe - Premium Portfolio",
   description:
-    "Welcome to my personal portfolio website. I'm Segun, a skilled web developer specializing in creating dynamic and responsive web applications. Explore my projects, skills, and get in touch to discuss how I can help bring your ideas to life.",
+    "Official portfolio of Segun Akindipe - Senior Web Developer & Software Engineer. Elevating digital experiences with robust and scalable solutions.",
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${pacifico.variable} ${marcellus.variable}  antialiased`}
+        className={`${inter.variable} ${outfit.variable} font-sans antialiased`}
       >
         <Header />
-        <main className=" bg-testcolor min-h-[40vh] relative pt-24 ">
+        <main className="bg-background relative pt-24 overflow-x-hidden">
           {children}
         </main>
         <Footer />

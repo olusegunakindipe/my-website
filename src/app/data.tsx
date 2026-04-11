@@ -18,14 +18,14 @@ export const projects = [
     title: "zkTUBE",
     description:
       "As one of the pioneer engineers, I implemented the frontend of zKtUBE — an Ethereum-based decentralized video platform — using React and Ant Design for a seamless user experience.",
-    imageUrl: "/assets/zktube.jpeg",
+    imageUrl: "/assets/zktube.webp",
     link: "https://zktube.io/",
   },
   {
     title: "Chops Delight",
     description:
       "Chops Delight is a modern web application for a confectionery brand specializing in cakes and pastries. Built with a focus on elegant UI and responsive design to showcase and sell delightful treats online",
-    imageUrl: "/assets/project-2.jpg",
+    imageUrl: "/assets/project-2.webp",
     link: "https://chopsdelight.vercel.app/",
   },
 ];
@@ -42,6 +42,12 @@ export const detailItems = [
     heading: "WEB CONSULTANT",
     description:
       "Get expert guidance on creating effective, user-centered digital experiences. From strategy to execution, I help you launch impactful websites that convert and engage.",
+  },
+  {
+    icon: <Workflow height="24" width="24" fill="white" />,
+    heading: "AI & MACHINE LEARNING",
+    description:
+      "Integrating cutting-edge AI models and machine learning workflows into your applications to automate processes, enhance user experiences, and provide data-driven insights.",
   },
   {
     icon: <AcademicResearcher height="24" width="24" fill="white" />,
