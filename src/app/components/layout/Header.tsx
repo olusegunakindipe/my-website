@@ -84,7 +84,7 @@ export default function Header() {
         rel="stylesheet"
       />
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`fixed inset-x-0 top-0 z-100 transition-all duration-700 ${
           scrolled
             ? "py-4 mesh-gradient backdrop-blur-2xl border-b border-white/5 shadow-2xl"
             : "py-8 bg-transparent"

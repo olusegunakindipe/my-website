@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
   background-color: #000000;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -82,7 +83,6 @@ button,
   }
   .mesh-gradient {
     background-color: #000000;
-    position: relative;
     overflow: hidden;
   }
   .mesh-gradient::before {

@@ -2,6 +2,15 @@
 import { motion } from "framer-motion";
 import Socials from "../components/social-icons/Socials";
 
+const floatingNodes = [
+  { top: "28%", left: "71%" },
+  { top: "32%", left: "49%" },
+  { top: "51%", left: "55%" },
+  { top: "33%", left: "64%" },
+  { top: "61%", left: "31%" },
+  { top: "54%", left: "52%" },
+];
+
 const About = () => {
   return (
     <section
@@ -68,7 +77,7 @@ const About = () => {
               />
 
               {/* Floating Nodes */}
-              {[...Array(6)].map((_, i) => (
+              {floatingNodes.map((node, i) => (
                 <motion.div
                   key={i}
                   animate={{
@@ -83,8 +92,8 @@ const About = () => {
                   }}
                   className="absolute w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_15px_#3b82f6]"
                   style={{
-                    top: `${20 + Math.random() * 60}%`,
-                    left: `${20 + Math.random() * 60}%`,
+                    top: node.top,
+                    left: node.left,
                   }}
                 />
               ))}

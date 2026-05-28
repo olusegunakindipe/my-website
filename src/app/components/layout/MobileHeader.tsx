@@ -24,7 +24,7 @@ const MobileHeader = forwardRef<HTMLDivElement, IProps>(
     return (
       <div
         ref={ref}
-        className={`glass-dark fixed top-[80px] left-6 right-6 rounded-[2rem] block lg:hidden font-bold p-8 shadow-2xl z-40 transform transition-all duration-500 ease-in-out border border-white/10 ${
+        className={`glass-dark fixed top-24 left-6 right-6 rounded-4xl block lg:hidden font-bold p-8 shadow-2xl z-[90] transform transition-all duration-500 ease-in-out border border-white/10 ${
           open
             ? "translate-y-0 opacity-100"
             : "-translate-y-10 opacity-0 pointer-events-none"
