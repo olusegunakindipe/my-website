@@ -16,9 +16,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Segun Akindipe - Premium Portfolio",
+  title: "Segun Akindipe - Portfolio",
   description:
-    "Official portfolio of Segun Akindipe - Senior Web Developer & Software Engineer. Elevating digital experiences with robust and scalable solutions.",
+    "Official website of Segun Akindipe - Senior Web Developer & Software Engineer. Elevating digital experiences with robust and scalable solutions.",
 };
 
 export const viewport = {
