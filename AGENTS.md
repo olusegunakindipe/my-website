@@ -27,7 +27,7 @@ When the user asks to commit, push, or open a PR, follow the project skill:
 
 - [`.cursor/skills/ship-pr/SKILL.md`](.cursor/skills/ship-pr/SKILL.md)
 
-It covers: never commit on `main` (create `feat/`/`fix/` branch first), Conventional Commits (Husky `commit-msg` + commitlint), lint-staged pre-commit, CI parity (`npm run lint` + `npm run prettier:check`), push the feature branch only, and `gh pr create --base main` with Summary + Test plan.
+It covers: never commit on `main` (create `feat/`/`fix/` branch first), Conventional Commits (Husky `commit-msg` + commitlint), lint-staged pre-commit, CI parity (`npm run lint` + `npm run prettier:check`), push the feature branch only, and `gh pr create --base main` with a Summary (no recurring Test plan section).
 
 ### Environment
 
