@@ -72,7 +72,7 @@ export default function Footer() {
                   <h4 className="text-white font-bold text-lg mb-1 tracking-tight">
                     Email
                   </h4>
-                  <p className="text-white/50 text-lg font-medium">
+                  <p className="text-white/70 text-lg font-medium">
                     akinfergie@gmail.com
                   </p>
                 </div>
@@ -86,7 +86,7 @@ export default function Footer() {
                   <h4 className="text-white font-bold text-lg mb-1 tracking-tight">
                     Phone
                   </h4>
-                  <p className="text-white/50 text-lg font-medium">
+                  <p className="text-white/70 text-lg font-medium">
                     +44 7748120797
                   </p>
                 </div>
@@ -100,7 +100,7 @@ export default function Footer() {
                   <h4 className="text-white font-bold text-lg mb-1 tracking-tight">
                     Location
                   </h4>
-                  <p className="text-white/50 text-lg font-medium">
+                  <p className="text-white/70 text-lg font-medium">
                     Birmingham, United Kingdom
                   </p>
                 </div>
@@ -127,7 +127,7 @@ export default function Footer() {
           <div className="flex gap-8">
             <Link
               href="#home"
-              className="text-white/30 hover:text-white transition-colors text-sm"
+              className="text-white/55 hover:text-white transition-colors text-sm"
             >
               Back to top ↑
             </Link>

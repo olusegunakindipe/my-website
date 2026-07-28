@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, useRef, MouseEvent } from "react";
+import { usePathname } from "next/navigation";
 import Hamburger from "../hamburger/Hamburger";
 import { navigation } from "../../data";
 import MobileHeader from "./MobileHeader";
@@ -20,6 +21,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const activeId = useScrollSpy();
   const hamburgerRef = useRef<HTMLButtonElement>(null);
@@ -60,16 +62,26 @@ export default function Header() {
     setIsOpen((prev) => !prev);
   };
 
-  const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
+  const handleLinkClick = (
+    e: MouseEvent<HTMLAnchorElement>,
+    item: (typeof navigation)[number],
+  ) => {
     setIsOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+    if (pathname === "/") {
+      e.preventDefault();
+      document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleCalendly = () => {
     window.Calendly?.initPopupWidget({
       url: "https://calendly.com/akinfergie/get-in-touch",
     });
+  };
+
+  const isItemActive = (item: (typeof navigation)[number]) => {
+    return pathname === "/" && activeId === item.id;
   };
 
   return (
@@ -101,8 +113,8 @@ export default function Header() {
               </span>
               <div className="flex items-center gap-2 mt-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]" />
-                <span className="text-white/30 text-[9px] font-black uppercase tracking-[0.4em] leading-none">
-                  Senior Software Engineer
+                <span className="text-white/55 text-[9px] font-black uppercase tracking-[0.4em] leading-none">
+                  Software Engineer
                 </span>
               </div>
             </div>
@@ -111,15 +123,15 @@ export default function Header() {
           <div className="hidden lg:flex items-center bg-white/5 backdrop-blur-md rounded-2xl p-1.5 border border-white/10">
             {navigation.map((item) => (
               <Link
-                onClick={(e) => handleLinkClick(e, item.id)}
+                onClick={(e) => handleLinkClick(e, item)}
                 key={item.id}
-                href={`#${item.id}`}
+                href={`/#${item.id}`}
                 className={`
                   px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer
                   ${
-                    activeId === item.id
+                    isItemActive(item)
                       ? "text-white bg-blue-600 shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                      : "text-white/50 hover:text-white hover:bg-white/5"
+                      : "text-white/65 hover:text-white hover:bg-white/5"
                   }
                 `}
               >

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-16 bg-[#050507]">
+    <section id="testimonials" className="py-16 surface-gradient">
       <div className="container max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ const Testimonials = () => {
                   <h4 className="text-white font-bold text-sm tracking-tight">
                     {testimonial.name}
                   </h4>
-                  <p className="text-white/40 text-xs">{testimonial.company}</p>
+                  <p className="text-white/55 text-xs">{testimonial.company}</p>
                 </div>
               </div>
             </motion.div>

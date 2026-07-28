@@ -10,6 +10,7 @@ export const navigation = [
   { id: "services", name: "Services" },
   { id: "projects", name: "Projects" },
   { id: "about", name: "About Me" },
+  { id: "articles", name: "Articles" },
   { id: "contact", name: "Contact" },
 ];
 
@@ -17,16 +18,16 @@ export const projects = [
   {
     title: "zkTUBE",
     description:
-      "As one of the pioneer engineers, I implemented the frontend of zKtUBE — an Ethereum-based decentralized video platform — using React and Ant Design for a seamless user experience.",
+      "As one of the pioneer engineers, I implemented the frontend of zKtUBE, an Ethereum-based decentralized video platform, using React and Ant Design for a seamless user experience.",
     imageUrl: "/assets/zktube.webp",
     link: "https://zktube.io/",
   },
   {
-    title: "Chops Delight",
+    title: "Aavegotchi",
     description:
-      "Chops Delight is a modern web application for a confectionery brand specializing in cakes and pastries. Built with a focus on elegant UI and responsive design to showcase and sell delightful treats online",
-    imageUrl: "/assets/project-2.webp",
-    link: "https://chopsdelight.vercel.app/",
+      "Contributed to Aavegotchi, a blockchain gaming multiverse on Base where players earn crypto, customize onchain avatars, and compete across interoperable games. Worked on product experiences at the intersection of Web3, NFTs, and play-to-earn gameplay.",
+    imageUrl: "/assets/aavegotchi.webp",
+    link: "https://www.aavegotchi.com/",
   },
 ];
 
@@ -35,25 +36,25 @@ export const detailItems = [
     icon: <Software height="24" width="24" fill="white" />,
     heading: "SOFTWARE ENGINEERING",
     description:
-      "Build robust, scalable, and high-performing web applications — from frontend interfaces to backend systems — all in one seamless solution tailored to your business needs.",
+      "Build robust, AI-ready web applications, from intelligent frontend interfaces to scalable backends, including OAuth2/OIDC identity with AWS Cognito, Lambda, and DynamoDB, engineered for performance, automation, and long-term growth.",
   },
   {
     icon: <WebConsultant height="24" width="24" fill="white" />,
     heading: "WEB CONSULTANT",
     description:
-      "Get expert guidance on creating effective, user-centered digital experiences. From strategy to execution, I help you launch impactful websites that convert and engage.",
+      "Strategic guidance for AI-augmented digital products. From product discovery to launch, I help teams ship experiences that convert, adapt, and stay ahead of the curve.",
   },
   {
     icon: <Workflow height="24" width="24" fill="white" />,
     heading: "AI & MACHINE LEARNING",
     description:
-      "Integrating cutting-edge AI models and machine learning workflows into your applications to automate processes, enhance user experiences, and provide data-driven insights.",
+      "Integrate modern AI models and agentic workflows into your stack, automating processes, personalizing UX, and unlocking data-driven insights that compound over time.",
   },
   {
     icon: <AcademicResearcher height="24" width="24" fill="white" />,
     heading: "ACADEMIC RESEARCHER",
     description:
-      "Transform complex ideas into intuitive, accessible digital platforms. Whether it's data visualization, interactive tools, or publication-ready portals — I bring research to life on the web",
+      "Turn complex research into clear digital products: interactive tools, intelligent visualizations, and publication-ready platforms powered by thoughtful engineering and AI where it adds leverage.",
   },
 ];
 
@@ -62,19 +63,19 @@ export const processItems = [
     icon: <Work height="24" width="24" fill="white" />,
     heading: "How I Work",
     description:
-      "From discovery to deployment, I build robust web platforms with clear communication and a focus on long-term scalability. My process ensures your idea becomes a high-performing product—on time and on point.",
+      "From discovery to deployment, I pair clear communication with AI-assisted engineering. Models accelerate research, scaffolding, and reviews, while humans stay accountable for architecture, quality, and outcomes.",
   },
   {
     icon: <Approach height="24" width="24" fill="white" />,
     heading: "My Approach",
     description:
-      "I combine design thinking with technical expertise to craft tailored digital solutions. Every decision—front end to back end—is rooted in strategy, performance, and user experience.",
+      "I blend design thinking, full-stack craft, and AI tooling to ship tailored solutions. Every decision, from frontend to backend, is grounded in strategy, performance, and experiences that feel intelligent without feeling opaque.",
   },
   {
     icon: <Workflow height="24" width="24" fill="white" />,
     heading: "Workflow",
     description:
-      "My workflow is lean, agile, and transparent. From clean codebases to cloud deployment, I handle the entire build cycle—so you can launch with confidence and scale without stress.",
+      "My workflow is lean, agile, and AI-enhanced. From clean codebases and automated checks to cloud deployment, I run the full build cycle so you can launch with confidence and iterate faster.",
   },
 ];
 

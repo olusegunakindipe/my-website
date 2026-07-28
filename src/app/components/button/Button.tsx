@@ -3,11 +3,10 @@ import React, { ButtonHTMLAttributes } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-interface ButtonProps
-  extends Omit<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
-  > {
+interface ButtonProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
+> {
   href?: string;
   variant?: "primary" | "secondary" | "outline" | "ghost" | "glass";
   size?: "sm" | "md" | "lg";

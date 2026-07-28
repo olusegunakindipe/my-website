@@ -77,7 +77,7 @@ const Projects = () => {
                   height={720}
                   className="w-full h-[400px] lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1b22]/70 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
               </div>
 
               <div className="w-full lg:w-2/5 text-left">
@@ -119,8 +119,8 @@ const Projects = () => {
                 My Process
               </h3>
               <p className="text-white/85 text-lg leading-relaxed mb-10">
-                A structured, transparent approach to building high-quality
-                digital products that scale.
+                A structured, AI-augmented approach to building high-quality
+                digital products that ship faster and scale with confidence.
               </p>
               <Button variant="primary" size="lg" onClick={handleClick}>
                 Let&apos;s Talk{" "}

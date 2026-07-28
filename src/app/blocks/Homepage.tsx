@@ -15,7 +15,7 @@ const Homepage = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient"
+      className="py-6 relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient"
     >
       {/* Background Decorative Elements with 3D feel */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -65,21 +65,13 @@ const Homepage = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center lg:text-left order-2 lg:order-1"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-blue-400 font-medium mb-4 uppercase tracking-[0.3em] text-xs"
-          >
-            Senior Web Developer
-          </motion.h2>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="text-5xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter"
           >
-            Design <br />
+            AI <br />
             <span className="text-blue-600">Driven.</span> <br />
             Code <br />
             <span className="text-white/40">Refined.</span>
@@ -90,8 +82,9 @@ const Homepage = () => {
             transition={{ delay: 0.4 }}
             className="text-white/70 text-lg lg:text-xl mb-12 max-w-md mx-auto lg:mx-0 leading-relaxed"
           >
-            I architect high-performance digital solutions that bridge the gap
-            between complex engineering and human-centric design.
+            I architect high-performance digital solutions that blend
+            AI-assisted engineering with human-centric design, shipping products
+            that are fast, intelligent, and built to scale.
           </motion.p>
 
           <motion.div
@@ -128,10 +121,10 @@ const Homepage = () => {
 
           <motion.div
             whileHover={{
-              scale: 1.08,
-              translateY: -20,
-              rotateY: 8,
-              rotateX: -5,
+              scale: 1.03,
+              translateY: -12,
+              rotateY: 4,
+              rotateX: -2,
             }}
             transition={{ type: "spring", stiffness: 100, damping: 15 }}
             className="relative z-10 group cursor-pointer"
@@ -143,10 +136,10 @@ const Homepage = () => {
                 alt="Segun Akindipe"
                 width={500}
                 height={667}
-                className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110 object-top"
+                className="w-full h-full object-cover object-[center_12%] origin-top grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-[1.04]"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1b22] via-transparent to-transparent opacity-60" />
             </div>
 
             {/* Floating details that stick to the person */}
