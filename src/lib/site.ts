@@ -4,7 +4,7 @@ export const siteConfig = {
   description:
     "Portfolio and engineering articles of Segun Akindipe, Software Engineer and web consultant building AI-powered, scalable digital products.",
   url: (
-    process.env.NEXT_PUBLIC_SITE_URL || "https://olusegunakindipe.com"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://segunakindipe.com"
   ).replace(/\/$/, ""),
   locale: "en_GB",
   twitter: "@AkinFergie",
