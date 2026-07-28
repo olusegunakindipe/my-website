@@ -180,12 +180,14 @@ Only after the user asks to open/create a PR. The PR must be **from the feature 
 
 4. Rebase onto latest `origin/main` (see **Sync with main before push**), resolve conflicts favoring this branch’s recent changes, then push the **feature branch** only (`--force-with-lease` if rebased).
 
-5. Create the PR with `gh` into **`main`**:
+5. Create the PR with `gh` into **`main`**. The body **must** include a brief bullet list of what changed so reviewers can scan it quickly:
 
    ```bash
    gh pr create --base main --title "feat(articles): add related posts by category" --body "$(cat <<'EOF'
    ## Summary
-   - One to three bullets of what changed and why
+   - Brief bullet of change 1
+   - Brief bullet of change 2
+   - Brief bullet of change 3 (if needed)
 
    EOF
    )"
@@ -196,10 +198,13 @@ Only after the user asks to open/create a PR. The PR must be **from the feature 
 
 ### PR body rules
 
-- **Summary only** by default: focus on why / user impact, not a file list.
+- **Always include a Summary** as a short bullet list (typically 2–5 items) of what changed or was updated.
+- Write for reviewers: each bullet should be understandable without opening the diff (what changed + why it matters).
+- Keep bullets brief; prefer outcomes over file paths (`Make Ask AI fullscreen on mobile` not `Edited SiteAssistant.tsx`).
 - Do **not** add a recurring Test plan section (`lint`, `prettier:check`, generic page checks, etc.). Run those locally / rely on CI; keep them out of the PR body.
 - Only add extra sections when the user asks, or when a one-off note is truly specific to this change.
 - Do not put secrets in the PR body.
+- When the user asks to **commit and open a PR**, do both: commit, sync/push, then open the PR with this Summary list.
 
 ## Progress checklist
 
@@ -215,6 +220,6 @@ Ship progress:
 - [ ] npm run lint + prettier:check passed
 - [ ] Rebased onto latest origin/main (conflicts → prefer branch)
 - [ ] Feature branch pushed (force-with-lease if rebased)
-- [ ] PR opened into main with Summary
+- [ ] PR opened into main with brief Summary bullet list
 - [ ] PR URL reported to user
 ```
