@@ -9,6 +9,8 @@ dist/         # if you're using `tsc` or other tools
 # Local environment variables
 .env
 .env.*        # covers .env.local, .env.development, etc.
+!.env.example
+
 
 # Logs
 npm-debug.log*

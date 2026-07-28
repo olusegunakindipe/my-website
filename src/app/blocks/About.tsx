@@ -27,15 +27,15 @@ const About = () => {
             className="mb-12"
           >
             <h2 className="text-blue-400 font-medium mb-4 uppercase tracking-[0.3em] text-xs">
-              Full-Stack Leadership
+              AI-Native Engineering
             </h2>
             <h3 className="text-4xl lg:text-7xl font-black text-white mb-8 tracking-tighter leading-[0.95]">
               System <br />
               <span className="text-blue-600">Architect.</span>
             </h3>
             <p className="text-white/85 text-xl leading-relaxed max-w-3xl mx-auto font-medium">
-              Senior Full Stack Engineer delivering high-performance, scalable
-              digital solutions across the UK, China, and Hong Kong.
+              Software Engineer building high-performance, AI-powered digital
+              solutions across the UK, China, and Hong Kong.
             </p>
           </motion.div>
 
@@ -114,14 +114,21 @@ const About = () => {
                 <div className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping" />
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
-                    System Architect
+                    AI Systems
                   </span>
                 </div>
                 <div className="h-px w-full bg-white/5" />
                 <div className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
-                    Full-Stack Expert
+                    Full-Stack Engineer
+                  </span>
+                </div>
+                <div className="h-px w-full bg-white/5" />
+                <div className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
+                    OAuth2 / OIDC · AWS
                   </span>
                 </div>
               </div>
@@ -138,11 +145,11 @@ const About = () => {
               <p>
                 Currently a{" "}
                 <span className="text-white font-bold">
-                  Senior Full Stack Engineer at Keystone Group
+                  Software Engineer at Keystone Group
                 </span>
-                , I lead the technical evolution of global platforms. I
-                specialize in architecting accessible, high-performance
-                frontends that consistently hit{" "}
+                , I lead the technical evolution of global platforms with an
+                AI-first mindset. I specialize in architecting accessible,
+                high-performance web applications that consistently hit{" "}
                 <span className="text-blue-400">
                   &quot;Good&quot; Core Web Vitals
                 </span>{" "}
@@ -150,14 +157,20 @@ const About = () => {
                 users.
               </p>
               <p>
-                My background spans the full engineering lifecycle—from
+                My background spans the full engineering lifecycle, from
                 designing complex{" "}
                 <span className="text-white">
                   Sanity CMS schemas with GraphQL/GROQ
+                </span>{" "}
+                to building <span className="text-white">OAuth2 and OIDC</span>{" "}
+                identity flows on{" "}
+                <span className="text-white">
+                  AWS (Cognito, Lambda, DynamoDB)
                 </span>
-                to engineering automated CI/CD pipelines via{" "}
+                , and engineering automated CI/CD pipelines via{" "}
                 <span className="text-white">GitHub Actions</span> for
-                zero-downtime production deployments on GCP and Vercel.
+                zero-downtime production deployments on GCP, Vercel, and AWS
+                Amplify.
               </p>
             </div>
 
@@ -187,9 +200,6 @@ const About = () => {
               <div className="pt-6 flex flex-col items-start gap-4">
                 <div className="flex gap-4">
                   <Socials />
-                </div>
-                <div className="text-white/60 text-[10px] uppercase font-black tracking-[0.4em]">
-                  Based in the United Kingdom
                 </div>
               </div>
             </div>

@@ -37,7 +37,7 @@ export default function ScrollArrow() {
       <button
         onClick={scrollTo}
         aria-label="Scroll"
-        className="fixed bottom-6 right-6 cursor-pointer z-50 w-12 h-12 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition"
+        className="fixed bottom-6 right-6 cursor-pointer z-50 w-12 h-12 bg-[#2a2b35] text-white rounded-full shadow-lg border border-white/15 hover:bg-[#343542] transition flex items-center justify-center"
       >
         ↑
       </button>

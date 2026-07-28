@@ -13,7 +13,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
-  background-color: #000000;
+  background-color: var(--background);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,8 +21,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: #000000;
-  color: #ffffff;
+  background: var(--background);
+  color: var(--foreground);
   overflow-x: hidden;
 }
 
@@ -61,28 +61,35 @@ button,
 }
 
 .dark {
-  --background: #030303;
+  --background: #1a1b22;
   --foreground: #f8fafc;
-  --card: #0a0a0b;
+  --card: #24252e;
   --card-foreground: #f8fafc;
   --primary: #2563eb;
   --primary-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.14);
   --ring: #3b82f6;
+  --surface: #22232c;
+  --surface-elevated: #2a2b35;
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-white/[0.08] backdrop-blur-md border border-white/15;
   }
   .glass-dark {
-    @apply bg-black/60 border border-white/10;
+    background-color: color-mix(
+      in srgb,
+      var(--surface-elevated) 85%,
+      transparent
+    );
+    @apply border border-white/15 backdrop-blur-md;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500;
   }
   .mesh-gradient {
-    background-color: #000000;
+    background-color: var(--background);
     overflow: hidden;
   }
   .mesh-gradient::before {
@@ -92,20 +99,20 @@ button,
     background-image:
       radial-gradient(
         at top left,
-        rgba(59, 130, 246, 0.1) 0px,
-        transparent 35%
+        rgba(59, 130, 246, 0.16) 0px,
+        transparent 40%
       ),
       radial-gradient(
         at bottom right,
-        rgba(99, 102, 241, 0.08) 0px,
-        transparent 35%
+        rgba(99, 102, 241, 0.12) 0px,
+        transparent 40%
       );
     opacity: 1;
     pointer-events: none;
     z-index: -1;
   }
   .surface-gradient {
-    background: #000000;
+    background: var(--surface);
   }
   .animate-spin-slow {
     animation: spin 8s linear infinite;

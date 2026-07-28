@@ -1,6 +1,8 @@
+"use client";
 import { useScrollSpy } from "@/app/hooks/useScrollSpy";
 import { navigation } from "@/app/data";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { Dispatch, MouseEvent, SetStateAction, forwardRef } from "react";
 
 interface IProps {
@@ -11,14 +13,24 @@ interface IProps {
 const MobileHeader = forwardRef<HTMLDivElement, IProps>(
   ({ open, setIsOpen }, ref) => {
     const activeId = useScrollSpy();
+    const pathname = usePathname();
 
     const handleClick = (
       e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-      id: string,
+      item: (typeof navigation)[number],
     ) => {
-      e.preventDefault();
       setIsOpen(false);
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+      if (pathname === "/") {
+        e.preventDefault();
+        document
+          .getElementById(item.id)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    const isItemActive = (item: (typeof navigation)[number]) => {
+      return pathname === "/" && activeId === item.id;
     };
 
     return (
@@ -34,11 +46,11 @@ const MobileHeader = forwardRef<HTMLDivElement, IProps>(
           {navigation.map((item) => (
             <Link
               key={item.id}
-              onClick={(e) => handleClick(e, item.id)}
-              href={`#${item.id}`}
+              onClick={(e) => handleClick(e, item)}
+              href={`/#${item.id}`}
               className={`
                 relative transition-all duration-300 py-1
-                ${activeId === item.id ? "text-blue-400" : "text-white/60"}
+                ${isItemActive(item) ? "text-blue-400" : "text-white/60"}
               `}
             >
               {item.name}

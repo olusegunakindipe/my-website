@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 relative overflow-hidden bg-[#000000]"
+      className="py-20 relative overflow-hidden bg-background"
     >
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
@@ -20,12 +20,13 @@ const Services = () => {
               Expertise
             </h2>
             <h3 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              Innovative <br />
+              Intelligent <br />
               Digital Solutions
             </h3>
             <p className="text-white/80 text-lg leading-relaxed max-w-md">
-              I provide end-to-end technical services to help you launch
-              high-performing products that grow with your business.
+              I provide end-to-end engineering, amplified by AI, to help you
+              launch high-performing products that learn, adapt, and grow with
+              your business.
             </p>
           </motion.div>
 

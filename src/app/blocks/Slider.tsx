@@ -16,13 +16,13 @@ const techStack = [
 
 const Slider = () => {
   return (
-    <div className="py-8 surface-gradient border-y border-white/10 relative z-10 overflow-hidden shadow-2xl">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+    <div className="py-4 surface-gradient border-y border-white/10 relative z-10 overflow-hidden shadow-2xl">
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-blue-500/40 to-transparent" />
       <Marquee
         pauseOnHover
         speed={30}
         gradient={true}
-        gradientColor="#0a0a0c"
+        gradientColor="#22232c"
         gradientWidth={200}
         className="flex items-center"
       >

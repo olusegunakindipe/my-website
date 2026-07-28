@@ -46,7 +46,7 @@ const Detail = ({
         animationDuration: "1s",
       }}
     >
-      <div className="border border-gray-500 bg-black rounded-lg p-1.5">
+      <div className="border border-white/20 bg-[#24252e] rounded-lg p-1.5">
         {icon}
       </div>
       <div className="flex flex-col">
