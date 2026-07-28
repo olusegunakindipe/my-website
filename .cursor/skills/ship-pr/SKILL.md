@@ -205,6 +205,7 @@ Only after the user asks to open/create a PR. The PR must be **from the feature 
 - Only add extra sections when the user asks, or when a one-off note is truly specific to this change.
 - Do not put secrets in the PR body.
 - When the user asks to **commit and open a PR**, do both: commit, sync/push, then open the PR with this Summary list.
+- The repo includes `.github/PULL_REQUEST_TEMPLATE.md` so GitHub’s web “Create pull request” form also starts with a Summary list. Prefer filling real bullets (agent or human); don’t leave empty placeholders.
 
 ## Progress checklist
 

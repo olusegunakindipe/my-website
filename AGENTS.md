@@ -27,7 +27,7 @@ When the user asks to commit, push, or open a PR, follow the project skill:
 
 - [`.cursor/skills/ship-pr/SKILL.md`](.cursor/skills/ship-pr/SKILL.md)
 
-It covers: never commit on `main` (create `feat/`/`fix/` branch first), Conventional Commits (Husky `commit-msg` + commitlint), lint-staged pre-commit, CI parity (`npm run lint` + `npm run prettier:check`), rebase onto latest `origin/main` before push (prefer branch on conflicts; `--force-with-lease` after rebase), push the feature branch only when asked, and `gh pr create --base main` with a brief Summary bullet list of what changed for reviewers (no recurring Test plan section).
+It covers: never commit on `main` (create `feat/`/`fix/` branch first), Conventional Commits (Husky `commit-msg` + commitlint), lint-staged pre-commit, CI parity (`npm run lint` + `npm run prettier:check`), rebase onto latest `origin/main` before push (prefer branch on conflicts; `--force-with-lease` after rebase), push the feature branch only when asked, and `gh pr create --base main` with a brief Summary bullet list of what changed for reviewers (no recurring Test plan section). GitHub’s web PR form uses [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md).
 
 ### Environment
 
