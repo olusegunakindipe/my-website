@@ -21,9 +21,13 @@ End-to-end workflow for commits and pull requests in this repository.
 - Never update git config.
 - Never use `--no-verify`, `--no-gpg-sign`, or interactive flags (`-i`).
 - Never force-push `main` or `release`. Warn before any force-push.
+- **Before every push:** sync with latest `origin/main` via **rebase** (preferred) unless the user asks for a merge.
+- On rebase/merge conflicts: keep the **feature branch’s recent intentional changes**; only take `main` where the branch has no opinion.
+- After a rebase of a branch that was already pushed, use `git push --force-with-lease` (never `--force`).
 - Never amend unless the user asked, HEAD was created by you in this session, and the commit is not pushed.
 - If commitlint or a hook rejects a commit, fix the message/files and create a **new** commit (do not amend a failed commit).
 - Do not commit secrets (`.env.local`, credentials, API keys).
+- Do **not** push until the user explicitly asks to push.
 
 ## Repo gates (must pass)
 
@@ -110,6 +114,38 @@ Then:
 
 More examples: [commit-examples.md](commit-examples.md)
 
+## Sync with main before push (required)
+
+When the user asks to push (or open a PR that needs an up-to-date branch):
+
+1. Ensure the working tree is clean (commit or stash first).
+2. Fetch and rebase onto latest `main`:
+
+   ```bash
+   git fetch origin main
+   git rebase origin/main
+   ```
+
+3. If conflicts occur:
+   - Open each conflicted file.
+   - Prefer the **feature branch** version for files this branch intentionally changed.
+   - Prefer `main` only for unrelated upstream fixes the branch never touched.
+   - `git add` resolved files, then `git rebase --continue`.
+   - To abort: `git rebase --abort`.
+4. Push:
+
+   ```bash
+   git push -u origin HEAD
+   ```
+
+   If the rebase rewrote commits that were already on the remote:
+
+   ```bash
+   git push --force-with-lease origin HEAD
+   ```
+
+Prefer rebase over merge for feature branches so history stays linear for PRs.
+
 ## Pull request workflow
 
 Only after the user asks to open/create a PR. The PR must be **from the feature branch → `main`** (or another base the user names). Never open a PR that pushes commits onto `main` directly.
@@ -142,11 +178,7 @@ Only after the user asks to open/create a PR. The PR must be **from the feature 
 
    Fix failures before pushing / opening the PR.
 
-4. Push the **feature branch** only:
-
-   ```bash
-   git push -u origin HEAD
-   ```
+4. Rebase onto latest `origin/main` (see **Sync with main before push**), resolve conflicts favoring this branch’s recent changes, then push the **feature branch** only (`--force-with-lease` if rebased).
 
 5. Create the PR with `gh` into **`main`**:
 
@@ -181,7 +213,8 @@ Ship progress:
 - [ ] Files staged (no secrets)
 - [ ] Conventional commit created (Husky passed)
 - [ ] npm run lint + prettier:check passed
-- [ ] Feature branch pushed (not main)
+- [ ] Rebased onto latest origin/main (conflicts → prefer branch)
+- [ ] Feature branch pushed (force-with-lease if rebased)
 - [ ] PR opened into main with Summary
 - [ ] PR URL reported to user
 ```
