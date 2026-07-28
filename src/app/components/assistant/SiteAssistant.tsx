@@ -15,7 +15,7 @@ export default function SiteAssistant() {
     {
       role: "assistant",
       content:
-        "Hi. Ask about Segun's work, services, projects, or how this site was built with AI agents.",
+        "Hi. Ask about Segun's work, services, projects, or how to get in touch.",
     },
   ]);
   const listRef = useRef<HTMLDivElement>(null);
@@ -27,6 +27,15 @@ export default function SiteAssistant() {
       behavior: "smooth",
     });
   }, [messages, open, loading]);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -72,10 +81,16 @@ export default function SiteAssistant() {
   };
 
   return (
-    <div className="fixed bottom-24 right-4 z-[80] flex w-[calc(100vw-2rem)] max-w-[22rem] flex-col items-end gap-3 sm:right-6 md:bottom-[5.5rem]">
+    <div
+      className={
+        open
+          ? "fixed inset-0 z-[120] flex flex-col md:inset-auto md:bottom-[5.5rem] md:right-6 md:w-[22rem] md:items-end md:gap-3"
+          : "fixed bottom-24 right-4 z-[80] flex flex-col items-end sm:right-6 md:bottom-[5.5rem]"
+      }
+    >
       {open ? (
-        <div className="flex max-h-[min(65vh,28rem)] w-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#12131a]/95 shadow-2xl backdrop-blur-xl">
-          <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+        <div className="flex h-full min-h-0 w-full flex-1 flex-col overflow-hidden border-white/15 bg-[#12131a] shadow-2xl md:h-auto md:max-h-[min(65vh,28rem)] md:rounded-2xl md:border md:bg-[#12131a]/95 md:backdrop-blur-xl">
+          <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
             <div>
               <p className="text-sm font-bold text-white">Ask about me</p>
             </div>
@@ -112,7 +127,7 @@ export default function SiteAssistant() {
 
           <form
             onSubmit={onSubmit}
-            className="flex gap-2 border-t border-white/10 p-3"
+            className="flex gap-2 border-t border-white/10 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
           >
             <input
               value={input}
@@ -137,7 +152,9 @@ export default function SiteAssistant() {
         onClick={() => setOpen((prev) => !prev)}
         aria-label={open ? "Close chat" : "Ask AI"}
         aria-expanded={open}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-[0_10px_40px_rgba(37,99,235,0.45)] transition hover:bg-blue-500"
+        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white shadow-[0_10px_40px_rgba(37,99,235,0.45)] transition hover:bg-blue-500 ${
+          open ? "hidden md:flex" : ""
+        }`}
       >
         {open ? (
           <svg
