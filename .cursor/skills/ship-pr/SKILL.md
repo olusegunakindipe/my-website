@@ -155,23 +155,18 @@ Only after the user asks to open/create a PR. The PR must be **from the feature 
    ## Summary
    - One to three bullets of what changed and why
 
-   ## Test plan
-   - [ ] `npm run lint`
-   - [ ] `npm run prettier:check`
-   - [ ] Manual check of affected UI / API paths
-
    EOF
    )"
    ```
 
-6. PR title: same conventional style as the primary commit when possible.
+6. PR title: same conventional style as the primary commit when possible. Do not stuff every feature into the title.
 7. Return the PR URL when done.
 
 ### PR body rules
 
-- **Summary**: focus on why / user impact, not a file list.
-- **Test plan**: always include the CI checks (`lint`, `prettier:check`) plus concrete manual steps for this change.
-- Include AI chat, Sanity, or env setup notes only when the change touches those areas.
+- **Summary only** by default: focus on why / user impact, not a file list.
+- Do **not** add a recurring Test plan section (`lint`, `prettier:check`, generic page checks, etc.). Run those locally / rely on CI; keep them out of the PR body.
+- Only add extra sections when the user asks, or when a one-off note is truly specific to this change.
 - Do not put secrets in the PR body.
 
 ## Progress checklist
@@ -187,6 +182,6 @@ Ship progress:
 - [ ] Conventional commit created (Husky passed)
 - [ ] npm run lint + prettier:check passed
 - [ ] Feature branch pushed (not main)
-- [ ] PR opened into main with Summary + Test plan
+- [ ] PR opened into main with Summary
 - [ ] PR URL reported to user
 ```

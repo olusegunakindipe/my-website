@@ -81,12 +81,6 @@ sanity.cli.ts
 - Portfolio copy stays in `data.tsx`; **articles live in Sanity**, not local TS files.
 - Match existing dark UI, motion, and Tailwind patterns.
 
-## Ignore / not app code
-
-Unused circuit-breaker sketch — do not wire into the portfolio unless asked:
-
-- `src/helpers.ts`, `src/types.ts`, `src/webClient.ts`
-
 ## Articles (Sanity)
 
 Flow: Nav → `/#articles` or `/articles` → click article → `/articles/[slug]`. Manage content at `/studio`. Legacy `/blog` URLs permanently redirect to `/articles`.
