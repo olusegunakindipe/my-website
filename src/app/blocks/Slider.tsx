@@ -16,7 +16,8 @@ const techStack = [
 
 const Slider = () => {
   return (
-    <div className="py-4 surface-gradient border-y border-white/10 relative z-10 overflow-hidden shadow-2xl">
+    <div className="relative z-10 overflow-hidden border-y border-white/10 surface-gradient py-3 shadow-2xl">
+      {" "}
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-blue-500/40 to-transparent" />
       <Marquee
         pauseOnHover
