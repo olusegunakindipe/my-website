@@ -20,6 +20,7 @@ Services:
 - Academic / research digital platforms
 
 Featured projects:
+- CVJungle: CV and LinkedIn optimization, truthful role/seniority/industry alignment, ATS readable PDF, LinkedIn copy from your real CV (https://cvjungle.com/)
 - zkTUBE: Ethereum decentralized video platform frontend (React, Ant Design)
 - Aavegotchi: blockchain gaming multiverse on Base (https://www.aavegotchi.com/)
 
