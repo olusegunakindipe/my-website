@@ -16,16 +16,23 @@ export const navigation = [
 
 export const projects = [
   {
+    title: "CVJungle",
+    description:
+      "Built CVJungle, a CV and LinkedIn optimization product that aligns real experience to role, seniority, and industry. Truthful rewrites, ATS readable PDF export, and matching LinkedIn headline and About without inventing skills.",
+    imageUrl: "/assets/cvjungle-hero.webp",
+    link: "https://cvjungle.com/",
+  },
+  {
     title: "zkTUBE",
     description:
-      "As one of the pioneer engineers, I implemented the frontend of zKtUBE, an Ethereum-based decentralized video platform, using React and Ant Design for a seamless user experience.",
+      "As one of the pioneer engineers, I implemented the frontend of zKtUBE, an Ethereum based decentralized video platform, using React and Ant Design for a seamless user experience.",
     imageUrl: "/assets/zktube.webp",
     link: "https://zktube.io/",
   },
   {
     title: "Aavegotchi",
     description:
-      "Contributed to Aavegotchi, a blockchain gaming multiverse on Base where players earn crypto, customize onchain avatars, and compete across interoperable games. Worked on product experiences at the intersection of Web3, NFTs, and play-to-earn gameplay.",
+      "Contributed to Aavegotchi, a blockchain gaming multiverse on Base where players earn crypto, customize onchain avatars, and compete across interoperable games. Worked on product experiences at the intersection of Web3, NFTs, and play to earn gameplay.",
     imageUrl: "/assets/aavegotchi.webp",
     link: "https://www.aavegotchi.com/",
   },
