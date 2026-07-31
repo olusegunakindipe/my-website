@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/olusegunakindipe/my-website/compare/v1.2.0...v1.2.1) (2026-07-31)
+
+
+### Bug Fixes
+
+* **ci:** skip lint on release-please PRs and ignore CHANGELOG ([#23](https://github.com/olusegunakindipe/my-website/issues/23)) ([4e95b32](https://github.com/olusegunakindipe/my-website/commit/4e95b32367c41e31a6ce728503a10969d5710771))
+
 ## [1.2.0](https://github.com/olusegunakindipe/my-website/compare/v1.1.2...v1.2.0) (2026-07-31)
 
 
