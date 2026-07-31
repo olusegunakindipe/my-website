@@ -8,6 +8,8 @@ on:
 
 jobs:
   lint-test:
+    # release-please only bumps version/changelog; skip lint/prettier on those PRs
+    if: "${{ !(github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'autorelease: pending')) }}"
     runs-on: ubuntu-latest
 
     steps:
