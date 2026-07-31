@@ -2,7 +2,7 @@
   ".": {
     "release-type": "node",
     "package-name": "my-official-website",
-    "target-branch": "release",
+    "target-branch": "main",
     "include-v-in-tag": true
   }
 }
